@@ -5,3 +5,4 @@ Lab*/App.config
 Lab*/*.csproj
 *.sln
 .vs/
+.gitignore
