@@ -22,9 +22,14 @@ namespace Lab2._1
                 }
 				catch (FormatException)
                 {
-                    Console.WriteLine("Пожалуйста, введите число!");
+                    Console.WriteLine("Пожалуйста, введите число! (Используйте ',' как разделитель дробной части)");
 					continue;
                 }
+				catch (OverflowException)
+                {
+					Console.WriteLine("К сожалению, мантисса этого числа больше, чем возможно обработать. Попоробуйте другое.");
+                    continue;
+				}
 				break;
             }//a = ...
 			while (true)
@@ -34,9 +39,14 @@ namespace Lab2._1
 					Console.Write("Введите значение b: ");
 					b = double.Parse(Console.ReadLine());
                 }
-                catch
+                catch (FormatException)
                 {
-					Console.WriteLine("Пожалуйста, введите число!");
+					Console.WriteLine("Пожалуйста, введите число! (Используйте ',' как разделитель дробной части)");
+					continue;
+				}
+				catch (OverflowException)
+                {
+					Console.WriteLine("К сожалению, мантисса это числа больше, чем возможно обработать. Попоробуйте другое.");
 					continue;
 				}
 				break;
@@ -48,9 +58,14 @@ namespace Lab2._1
 					Console.Write("Введите значение с: ");
 					c = double.Parse(Console.ReadLine());
                 }
-                catch
+                catch (FormatException)
                 {
-					Console.WriteLine("Пожалуйста, введите число!");
+					Console.WriteLine("Пожалуйста, введите число! (Используйте ',' как разделитель дробной части)");
+					continue;
+				}
+				catch (OverflowException)
+				{
+					Console.WriteLine("К сожалению, мантисса это числа больше, чем возможно обработать. Попоробуйте другое.");
 					continue;
 				}
 				break;

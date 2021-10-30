@@ -10,55 +10,78 @@ namespace Lab2._4
 	{
 		static void Main(string[] args)
 		{
-			double x = 0, q = 0;
-			t1:
-			try
-			{
-				Console.Write("Введите значение аргумента cos(x): ");
-				x = double.Parse(Console.ReadLine());
-			} catch (FormatException)
-			{
-				Console.WriteLine("Введите число!");
-				goto t1;
-            } catch (OverflowException)
+			Console.WriteLine("Вычисление косинуса по ряду Тейлора");
+			double x, q;
+			while (true)
             {
-                Console.WriteLine("Такое большое число невозможно обработать. Попробуйте другое.");
-				goto t1;
-            } //Присвоение x
-			t2:
-            try
-            {
-				Console.Write("Введите точность вычисления: ");
-				q = double.Parse(Console.ReadLine());
-            } catch (FormatException)
-            {
-                Console.WriteLine("Введите число!");
-				goto t2;
-            } catch (OverflowException)
-            {
-				Console.WriteLine("Такое большое число невозможно обработать. Попробуйте другое.");
-				goto t2;
-            } //Присовение q
-
-			ulong Fact(ulong num)
-            {
-				ulong fact = 1;
-				for (uint i = 1; i <= num; i++)
+                try
                 {
-					fact *= i;
+					Console.Write("Введите значение аргумента cos(x) в радианах (будет приведено к 0 <= x < 2pi): ");
+					x = double.Parse(Console.ReadLine());
+				}
+				catch (FormatException)
+                {
+					Console.WriteLine("Пожалуйста, введите число! (Используйте ',' как разделитель дробной части)");
+					continue;
+				}
+				catch (OverflowException)
+				{
+					Console.WriteLine("К сожалению, мантисса это числа больше, чем возможно обработать. Попоробуйте другое.");
+					continue;
+				}
+				break;
+			}//x = ...
+			while (true)
+            {
+                try
+                {
+					Console.Write("Введите точность вычисления (0 < q < 1): ");
+					q = double.Parse(Console.ReadLine());
+					if (q <= 0)
+						throw new Exception("NotPositive");
+					if (q >= 1)
+						throw new Exception("TooBig");
+				}
+				catch (FormatException)
+				{
+					Console.WriteLine("Пожалуйста, введите число! (Используйте ',' как разделитель дробной части)");
+					continue;
+				}
+				catch (OverflowException)
+				{
+					Console.WriteLine("К сожалению, мантисса это числа больше, чем возможно обработать. Попоробуйте другое.");
+					continue;
+				}
+				catch (Exception e) when (e.Message == "NotPositive")
+                {
+                    Console.WriteLine("Пожалуйста, введите положительное число");
+					continue;
                 }
-				return fact;
+				catch (Exception e) when (e.Message == "TooBig")
+                {
+                    Console.WriteLine("Число должно быть меньше 1");
+					continue;
+                }
+				break;
+			}//q = ...
+			long Fact(long num)
+            {
+				long ans = 1;
+				for (long i = 2; i <= num; i++)
+					ans *= i;
+				return ans;
             }
-			double ans = 1, add = 0;
-			ulong addCounter = 1;
-			do
-			{
-				add = Math.Pow(x, addCounter * 2) / Fact(addCounter * 2);
-				ans += add * (addCounter % 2 == 0 ? 1 : -1);
-				addCounter++;
-			} while (add >= q);
 
-            Console.WriteLine($"cos({x}) ≈ {ans}");
-		}
+			while (Math.Abs(x) > 2 * Math.PI)
+				x -= 2 * Math.PI * Math.Sign(x);
+			double addent = 1;
+			double cos = 0;
+			for (long i = 2; Math.Abs(addent) >= q; i += 2)
+            {
+				cos += addent;
+				addent = Math.Pow(x, i) / Fact(i) * Math.Pow(-1, i/2);
+            }
+            Console.WriteLine($"cos({x}) ~= {cos}");
+        }
 	}
 }
