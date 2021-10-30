@@ -88,7 +88,7 @@ namespace Lab2._1
 			else
 			{
 				double real = -b / (2 * a);
-				double imag = Math.Sqrt(-disc);
+				double imag = Math.Sqrt(-disc) / (2 * a);
                 Console.WriteLine($"2 комплексных корня:\nx1 = {real} + {imag}i\nx2 = {real} - {imag}i");
 			}
 		}
