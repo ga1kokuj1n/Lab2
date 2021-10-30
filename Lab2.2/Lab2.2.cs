@@ -10,6 +10,7 @@ namespace Lab2._2
 	{
 		static void Main(string[] args)
 		{
+            Console.WriteLine("Вычисление pi по формуле суммы бесконечного ряда: ");
 			long amountOfAddends;
 			while (true)
             {
@@ -38,6 +39,8 @@ namespace Lab2._2
 				}
 				break;
 			}//amountOfAddends = ...
+
+			//------------------------------------------------------------------
 
 			decimal ans = 1;
 			bool isNegative = true;

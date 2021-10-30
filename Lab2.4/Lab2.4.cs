@@ -64,6 +64,9 @@ namespace Lab2._4
                 }
 				break;
 			}//q = ...
+
+			//------------------------------------------------------------------
+
 			long Fact(long num)
             {
 				long ans = 1;
@@ -81,7 +84,7 @@ namespace Lab2._4
 				cos += addent;
 				addent = Math.Pow(x, i) / Fact(i) * Math.Pow(-1, i/2);
             }
-            Console.WriteLine($"cos({x}) ~= {cos}");
+            Console.WriteLine($"cos({x:n3}) ~= {cos:n3}");
         }
 	}
 }

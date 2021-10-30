@@ -10,6 +10,8 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Эта программа раскладывает натуральное число на три куба натуральных чисел и выводит эти числа");
+
             long N;
             while (true)
             {
@@ -33,6 +35,8 @@ namespace ConsoleApp1
                 break;
             }//N = ...
 
+            //------------------------------------------------------------------
+
             //В этих случаях разложение невозможно, а алгоритм, скорее всего, будет вести себя некорректно
             if (N <= 2)
             {
@@ -40,7 +44,18 @@ namespace ConsoleApp1
                 return;
             }
 
-
+            //Простой перебор вариантов (я так и не придумал, как это по другому написать)
+            bool isFound = false;
+            for (long i = 1; i <= N - 2; i++)
+                for (long j = 1; j <= N - 2; j++)
+                    for (long k = 1; k <= N -2; k++)
+                        if (Math.Pow(i, 3) + Math.Pow(j, 3) + Math.Pow(k, 3) == N)
+                        {
+                            Console.WriteLine($"{i}, {j}, {k}");
+                            isFound = true;
+                        }
+            if (!isFound)
+                Console.WriteLine("No such combination");
         }
     }
 }
