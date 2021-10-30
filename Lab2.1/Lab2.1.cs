@@ -11,12 +11,50 @@ namespace Lab2._1
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Решение ax^2 + bx + c = 0");
-			Console.Write("Ввдеите a: ");
-			double a = double.Parse(Console.ReadLine());
-			Console.Write("Введите b: ");
-			double b = double.Parse(Console.ReadLine());
-			Console.Write("Введите c: ");
-			double c = double.Parse(Console.ReadLine());
+			Console.Write("Введите a: ");
+			double a, b, c;
+			while (true)
+            {
+                try
+                {
+					Console.WriteLine("Введите значение a: ");
+					a = double.Parse(Console.ReadLine());
+                }
+				catch (FormatException)
+                {
+                    Console.WriteLine("Пожалуйста, введите число!");
+					continue;
+                }
+				break;
+            }//a = ...
+			while (true)
+            {
+                try
+                {
+					Console.Write("Введите значение b: ");
+					b = double.Parse(Console.ReadLine());
+                }
+                catch
+                {
+					Console.WriteLine("Пожалуйста, введите число!");
+					continue;
+				}
+				break;
+			}//b = ...
+			while (true)
+            {
+                try
+                {
+					Console.Write("Введите значение с: ");
+					c = double.Parse(Console.ReadLine());
+                }
+                catch
+                {
+					Console.WriteLine("Пожалуйста, введите число!");
+					continue;
+				}
+				break;
+            }//c = ...
 
 			double disc = b * b - 4 * a * c;
 			if (disc == 0)
