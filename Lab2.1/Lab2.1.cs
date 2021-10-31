@@ -14,52 +14,33 @@ namespace Lab2._1
 			Console.Write("Введите a: ");
 			double a, b, c;
 			while (true)
-            {
-                try
-                {
+			{
+				try
+				{
 					Console.WriteLine("Введите значение a: ");
 					a = double.Parse(Console.ReadLine());
-                }
-				catch (FormatException)
-                {
-                    Console.WriteLine("Пожалуйста, введите число! (Используйте ',' как разделитель дробной части)");
-					continue;
-                }
-				catch (OverflowException)
-                {
-					Console.WriteLine("К сожалению, мантисса этого числа больше, чем возможно обработать. Попоробуйте другое.");
-                    continue;
 				}
-				break;
-            }//a = ...
-			while (true)
-            {
-                try
-                {
-					Console.Write("Введите значение b: ");
-					b = double.Parse(Console.ReadLine());
-                }
-                catch (FormatException)
-                {
+				catch (FormatException)
+				{
 					Console.WriteLine("Пожалуйста, введите число! (Используйте ',' как разделитель дробной части)");
 					continue;
 				}
 				catch (OverflowException)
-                {
-					Console.WriteLine("К сожалению, мантисса это числа больше, чем возможно обработать. Попоробуйте другое.");
+				{
+					Console.WriteLine("К сожалению, мантисса этого числа больше, чем возможно обработать. Попоробуйте другое.");
 					continue;
 				}
 				break;
-			}//b = ...
+			}//a = ...
 			while (true)
-            {
-                try
-                {
-					Console.Write("Введите значение с: ");
-					c = double.Parse(Console.ReadLine());
-                }
-                catch (FormatException)
-                {
+			{
+				try
+				{
+					Console.Write("Введите значение b: ");
+					b = double.Parse(Console.ReadLine());
+				}
+				catch (FormatException)
+				{
 					Console.WriteLine("Пожалуйста, введите число! (Используйте ',' как разделитель дробной части)");
 					continue;
 				}
@@ -69,7 +50,26 @@ namespace Lab2._1
 					continue;
 				}
 				break;
-            }//c = ...
+			}//b = ...
+			while (true)
+			{
+				try
+				{
+					Console.Write("Введите значение с: ");
+					c = double.Parse(Console.ReadLine());
+				}
+				catch (FormatException)
+				{
+					Console.WriteLine("Пожалуйста, введите число! (Используйте ',' как разделитель дробной части)");
+					continue;
+				}
+				catch (OverflowException)
+				{
+					Console.WriteLine("К сожалению, мантисса это числа больше, чем возможно обработать. Попоробуйте другое.");
+					continue;
+				}
+				break;
+			}//c = ...
 
 			//------------------------------------------------------------------
 
@@ -89,7 +89,7 @@ namespace Lab2._1
 			{
 				double real = -b / (2 * a);
 				double imag = Math.Sqrt(-disc) / (2 * a);
-                Console.WriteLine($"2 комплексных корня:\nx1 = {real} + {imag}i\nx2 = {real} - {imag}i");
+				Console.WriteLine($"2 комплексных корня:\nx1 = {real} + {imag}i\nx2 = {real} - {imag}i");
 			}
 		}
 	}

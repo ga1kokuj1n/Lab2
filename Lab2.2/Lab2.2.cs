@@ -10,30 +10,30 @@ namespace Lab2._2
 	{
 		static void Main(string[] args)
 		{
-            Console.WriteLine("Вычисление pi по формуле суммы бесконечного ряда: ");
+			Console.WriteLine("Вычисление pi по формуле суммы бесконечного ряда: ");
 			long amountOfAddends;
 			while (true)
-            {
-                try
-                {
+			{
+				try
+				{
 					Console.WriteLine("Введите кол-во элементов, по которому будет произведён рассчёт:");
 					amountOfAddends = long.Parse(Console.ReadLine());
 					if (amountOfAddends <= 0)
 						throw new Exception("NotPositive");
 
-                }
+				}
 				catch (FormatException)
-                {
+				{
 					Console.WriteLine("Пожалуйста, введите целое число!");
 					continue;
 				}
 				catch (Exception e) when (e.Message == "NotPositive")
-                {
+				{
 					Console.WriteLine("Число слагаемых должно быть больше больше нуля!");
 					continue;
 				}
 				catch (OverflowException)
-                {
+				{
 					Console.WriteLine("К сожалению, это число больше, чем возможно обработать. Попоробуйте другое.");
 					continue;
 				}

@@ -10,7 +10,7 @@ namespace Lab2.Indiv2
 	{
 		static void Main(string[] args)
 		{
-            Console.WriteLine("Эта программа показывает все чётные делители числа");
+			Console.WriteLine("Эта программа показывает все чётные делители числа");
 
 			long num;
 			while (true)
@@ -50,9 +50,9 @@ namespace Lab2.Indiv2
 					dividers.Add(i);
 			
 			foreach (long i in dividers)
-            {
+			{
 				Console.Write(i + ", ");
-            }
+			}
 			Console.WriteLine("\b\b\0\0");
 		}
 	}

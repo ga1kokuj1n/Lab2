@@ -61,19 +61,19 @@ namespace Lab2.Indiv1
 			}
 
 			if (x > 0)
-            {
+			{
 				if (y > 0)
-                    Console.WriteLine("1");
+					Console.WriteLine("1");
 				else
-                    Console.WriteLine("4");
-            }
+					Console.WriteLine("4");
+			}
 			else
-            {
+			{
 				if (y > 0)
-                    Console.WriteLine("2");
+					Console.WriteLine("2");
 				else
-                    Console.WriteLine("3");
-            }
+					Console.WriteLine("3");
+			}
 				
 		}
 	}
