@@ -79,12 +79,15 @@ namespace Lab2._4
 				x -= 2 * Math.PI * Math.Sign(x);
 			double addent = 1;
 			double cos = 0;
+			long counter = 0;
 			for (long i = 2; Math.Abs(addent) >= q; i += 2)
 			{
 				cos += addent;
+				counter++;
 				addent = Math.Pow(x, i) / Fact(i) * Math.Pow(-1, i/2);
 			}
 			Console.WriteLine($"cos({x:n3}) ~= {cos:n3}");
+            Console.WriteLine($"Значние было высчитано по {counter} слагаемым");
 		}
 	}
 }
