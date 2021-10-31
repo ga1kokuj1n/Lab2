@@ -44,15 +44,10 @@ namespace Lab2.Indiv2
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 
-			List<long> dividers = new List<long>();
 			for (long i = 2; i <= num; i++)
 				if (num % i == 0 && i % 2 == 0)
-					dividers.Add(i);
+					Console.Write(i + ", ");
 			
-			foreach (long i in dividers)
-			{
-				Console.Write(i + ", ");
-			}
 			Console.WriteLine("\b\b\0\0");
 		}
 	}
